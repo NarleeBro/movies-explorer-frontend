@@ -1,0 +1,60 @@
+.checkboxfilter {
+  width: 34px;
+  height: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+.checkboxfilter .checkboxfilter__input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.checkboxfilter__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  border-radius: 34px;
+  background-color: #ccc;
+}
+
+.checkboxfilter:focus-within .checkboxfilter__slider {
+  outline: 1.5px solid #4285f4;
+}
+
+.checkboxfilter__slider:before {
+  height: 10px;
+  width: 10px;
+  /* background-image: url(../../../../images/1greentumbler.svg); */
+  background-position: center;
+  border-radius: 50%;
+  /*  background-color: #ccc; */
+  position: absolute;
+  content: "";
+  left: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.checkboxfilter__input:checked + .checkboxfilter__slider:before {
+  transform: translateX(20px);
+}
+
+.checkboxfilter__input:checked + .checkboxfilter__slider {
+  background-color: #3ddc84;
+}
+
+@media screen and (max-width: 540px) {
+  .checkboxfilter {
+    width: 39px;
+    height: 15px;
+  }
+  .checkboxfilter__slider:before {
+    width: 11px;
+    height: 11px;
+  }
+}

@@ -1,0 +1,30 @@
+.profile-btn {
+  margin: 0;
+  padding: 0;
+  width: 86px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border-style: none;
+  border: none;
+}
+
+.profile-btn__link {
+  margin: 0;
+  padding-top: 9%;
+  height: 27px;
+  width: 100px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 12px;
+  background-image: url(../../../images/1logoheaderpeop.svg);
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-position: 99% 50%;
+  background-size: 27px 27px;
+  box-sizing: border-box;
+  border: none;
+}

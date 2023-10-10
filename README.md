@@ -1,3 +1,3 @@
 # movies-explorer-frontend
 
-макет dark-1: https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-6136&mode=design&t=hjwGBlab58hAEpJF-0
+Макет dark-3: https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/Дипломный-проект?type=design&node-id=1-8895&mode=design&t=8qaNYfYq5oo5tC7B-0

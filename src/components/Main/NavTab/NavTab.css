@@ -1,0 +1,36 @@
+.navtab {
+  margin: 0;
+  background-color: #272727;
+  display: flex;
+  justify-content: center;
+}
+
+.navtab__list {
+  padding: 0;
+  margin: 0;
+  padding: 25px 0;
+  width: 276px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.navtab__element {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration-line: underline;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 500px) and (min-width: 320px) {
+  .navtab__element {
+    font-size: 11px;
+  }
+  .navtab__list {
+    width: 214px;
+  }
+}

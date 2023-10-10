@@ -1,0 +1,107 @@
+.movies-card {
+  background: #202020;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movies-card__link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.movies-card__container {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movies-card__wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.movies-card__title {
+  margin: 0;
+  padding-top: 7px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30ch;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /*  text-overflow: ellipsis; */
+}
+
+.movies-card__duration {
+  padding-top: 11px;
+  color: #8b8b8b;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+/* .poloska {
+  border-top: 1px solid #424242;
+  padding-top: 5px;
+} */
+
+.movies-card__backdrop {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  background-position: center center;
+  background-size: contain;
+  box-sizing: content-box;
+  object-position: 0 0;
+  height: 203px;
+}
+
+.movies-card__favorites-btn {
+  background-image: url(../../../images/1likeblack.svg);
+  background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.movies-card__favorites-btn.remove-btn {
+  background-image: url(../../../images/1zakritie.svg);
+}
+
+.movies-card__favorites-btn.active {
+  background-image: url(../../../images/1likered.svg);
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card__backdrop {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .movies-card__backdrop {
+    height: 168px;
+  }
+}

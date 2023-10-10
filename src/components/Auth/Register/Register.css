@@ -1,0 +1,39 @@
+.register {
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.register-form {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.register-form__button {
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .register-form {
+    flex: 1 0 auto;
+  }
+  .register {
+    padding-top: 80px;
+  }
+}

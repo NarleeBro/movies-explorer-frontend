@@ -1,0 +1,51 @@
+.landing {
+  width: 100%;
+  background-color: #073042;
+  display: flex;
+  background-image: url(../../../images/1logoproject.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* border: 12px solid red; */
+}
+
+.landing__header {
+  margin: calc((202 * (275 / 1280) * 100%) / 275) calc((275 / 1280) * 100%)
+    calc((224 * (275 / 1280) * 100%) / 275) calc((275 / 1280) * 100%);
+  padding: 0;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  text-align: center;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 769px) {
+  .landing {
+    background-size: calc(320 / 1280 * 100vw) calc(320 / 1280 * 100vw);
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 540px) {
+  .landing__header {
+    margin: calc((343 * (19 / 768) * 100%) / 19) calc((19 / 768) * 100%)
+      calc((342 * (19 / 768) * 100%) / 19);
+  }
+  .landing {
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 540px) and (min-width: 320px) {
+  .landing__header {
+    margin: calc((225 * (10 / 320) * 100%) / 10) calc((10 / 320) * 100%)
+      calc((244 * (10 / 320) * 100%) / 10);
+    font-size: 31px;
+    line-height: 39px;
+    letter-spacing: -1.24px;
+  }
+  .landing {
+    background-size: calc(248 / 320 * 100vw) calc(248 / 320 * 100vw);
+    background-position: 50% 47%;
+  }
+}

@@ -1,0 +1,27 @@
+.form-navigation {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  gap: 6px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.form-navigation__question {
+  color: #8b8b8b;
+}
+
+.form-navigation__link {
+  color: #4285f4;
+}
+
+@media screen and (max-width: 550px) {
+  .form-navigation {
+    font-size: 12px;
+    gap: 7px;
+  }
+}
