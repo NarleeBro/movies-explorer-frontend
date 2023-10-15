@@ -35,7 +35,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  width: calc(400 / 550 * 100%);
+  width: calc(550 / 550 * 100%);
 }
 
 .about-project__timeline-container {

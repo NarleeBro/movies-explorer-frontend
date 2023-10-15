@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-height: 281px;
 }
 
 .movies-card__link {
@@ -21,20 +22,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
 .movies-card__wrapper {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+  padding-right: 25px;
 }
 
 .movies-card__title {
   margin: 0;
-  padding-top: 7px;
-  font-size: 13px;
+  padding-top: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -48,6 +54,7 @@
 }
 
 .movies-card__duration {
+  padding: 0;
   padding-top: 11px;
   color: #8b8b8b;
   font-size: 11px;
@@ -55,6 +62,7 @@
   font-weight: 400;
   line-height: normal;
   margin: 0;
+  margin-left: 15px;
 }
 
 /* .poloska {
@@ -82,10 +90,15 @@
   border: none;
   background-color: transparent;
   box-sizing: border-box;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .movies-card__favorites-btn.remove-btn {
   background-image: url(../../../images/1zakritie.svg);
+  width: 14px;
+  height: 12px;
+  margin-top: 10px;
 }
 
 .movies-card__favorites-btn.active {
@@ -103,5 +116,42 @@
 @media screen and (max-width: 540px) {
   .movies-card__backdrop {
     height: 168px;
+  }
+  .movies-card__wrapper {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+  .movies-card__title {
+    padding-left: 10px;
+  }
+  .movies-card__duration {
+    padding-left: 10px;
+    font-size: 10px;
+  }
+  .movies-card__favorites-btn {
+    margin-right: 14px;
+  }
+  .movies-card__favorites-btn.remove-btn {
+    padding-right: 2px;
+    margin-right: 22px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies-card__wrapper {
+    padding: 0;
+  }
+  .movies-card__container {
+    padding-bottom: 0px;
+  }
+  .movies-card__duration {
+    margin-left: 0;
+  }
+  .movies-card-list__container {
+    gap: 30px;
+  }
+  .footer {
+    padding-top: 135px;
   }
 }

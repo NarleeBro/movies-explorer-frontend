@@ -108,6 +108,12 @@
   .profile__data-container {
     padding-top: calc(0.09 * 100vh);
   }
+  .profile {
+    padding-top: 252px;
+  }
+  .profile__greetings {
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: 500px) {

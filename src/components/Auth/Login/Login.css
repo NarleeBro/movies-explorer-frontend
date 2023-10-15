@@ -26,6 +26,12 @@
   flex-shrink: 0;
 }
 
+@media screen and (max-width: 770px) {
+  .login-form__button {
+    margin-top: 154px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .login-form {
     flex: 1 0 auto;

@@ -4,6 +4,7 @@ import "./Login.css";
 import InputField from "../InputField/InputField";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import Header from "../../Header/Header";
+import FormNavigation from '../FormNavigation/FormNavigation'
 
 function Login() {
   return (
@@ -22,6 +23,11 @@ function Login() {
               <SubmitButton title={"Войти"} />
             </div>
           </form>
+          <FormNavigation
+            questionText={"Ещё не зарегистрированы?"}
+            linkText={"Регистрация"}
+            linkTo={"/signup"}
+          />
         </section>
       </main>
     </div>

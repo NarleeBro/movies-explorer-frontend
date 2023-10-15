@@ -6,7 +6,7 @@ import { MovieContext } from "../../../contexts/MovieContext";
 import { VisibleRowsContext } from "../../../contexts/VisibleRowsContext";
 
 const movieCardStartColumns = () => {
-  if (window.innerWidth >= 1280) return 3;
+  if (window.innerWidth >= 1200) return 3;
   if (window.innerWidth >= 700) return 2;
   return 1;
 };

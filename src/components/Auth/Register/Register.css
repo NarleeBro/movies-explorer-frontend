@@ -29,6 +29,12 @@
   flex-shrink: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .register-form__button {
+    padding-top: 65px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .register-form {
     flex: 1 0 auto;
