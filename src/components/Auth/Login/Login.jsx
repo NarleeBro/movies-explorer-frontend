@@ -18,16 +18,17 @@ function Login() {
               type={"email"}
               placeholder={"pochta@yandex.ru"}
             />
-            <InputField title={"Пароль"} type={"password"} placeholder={""} />
+            <InputField title={"Пароль"} type={"password"} placeholder={"Введите пароль"} />
             <div className="login-form__button">
               <SubmitButton title={"Войти"} />
+              <FormNavigation
+                questionText={"Ещё не зарегистрированы?"}
+                linkText={"Регистрация"}
+                linkTo={"/signup"}
+              />
             </div>
           </form>
-          <FormNavigation
-            questionText={"Ещё не зарегистрированы?"}
-            linkText={"Регистрация"}
-            linkTo={"/signup"}
-          />
+
         </section>
       </main>
     </div>

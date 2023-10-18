@@ -46,37 +46,36 @@ function MoviesCard({ title, duration, backdrop, isSaved }) {
         className="movies-card__link"
         to={"https://www.youtube.com/watch?v=6UgY1aEhY2c"}
         target="_blank"
-      >
-        <img
-          className="movies-card__backdrop"
-          src={backdrop}
-          alt={`Кадр из фильма: ${title}`}
-        />
-        <div className="movies-card__container">
-          <div className="movies-card__wrapper">
-            <h2 className="movies-card__title">{title}</h2>
+      ></Link>
+      <img
+        className="movies-card__backdrop"
+        src={backdrop}
+        alt={`Кадр из фильма: ${title}`}
+      />
+      <div className="movies-card__container">
+        <div className="movies-card__wrapper">
+          <h2 className="movies-card__title">{title}</h2>
 
-            {!isFavoritesRoute && (
-              <button
-                className={`movies-card__favorites-btn link ${favourites ? "active" : ""
-                  }`}
-                type="button"
-                onClick={handleClick}
-              ></button>
-            )}
-            {isFavoritesRoute && (
-              <button
-                className={`movies-card__favorites-btn link remove-btn`}
-                type="button"
-                onClick={handleDeleteMovie}
-              ></button>
-            )}
-          </div>
+          {!isFavoritesRoute && (
+            <button
+              className={`movies-card__favorites-btn link ${favourites ? "active" : ""
+                }`}
+              type="button"
+              onClick={handleClick}
+            ></button>
+          )}
+          {isFavoritesRoute && (
+            <button
+              className={`movies-card__favorites-btn link remove-btn`}
+              type="button"
+              onClick={handleDeleteMovie}
+            ></button>
+          )}
         </div>
-        <span className="movies-card__duration">
-          {formatDuration(duration)}
-        </span>
-      </Link>
+      </div>
+      <span className="movies-card__duration">
+        {formatDuration(duration)}
+      </span>
     </li>
   );
 }

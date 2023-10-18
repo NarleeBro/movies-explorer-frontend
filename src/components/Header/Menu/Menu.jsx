@@ -19,7 +19,7 @@ function Menu({ isOpen, onClose }) {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  `menu__link link ${isActive && "active"}`
+                  `menu__link link ${isActive && "false"}`
                 }
               >
                 Главная

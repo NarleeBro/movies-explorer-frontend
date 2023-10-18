@@ -53,6 +53,7 @@
   width: 34px;
   height: 34px;
   background-image: url(../../../images/1findbtn.svg);
+  background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 48px;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import imageOwner from "../../../images/1vitaliy.svg";
+import imageOwner from "../../../images/2vitalik.jpg";
 import "./AboutMe.css";
 import SectionHeader from "../../Header/SectionHeader/SectionHeader";
 import Portfolio from "../Portfolio/Portfolio";

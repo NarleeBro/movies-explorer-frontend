@@ -21,14 +21,18 @@
 
 .login-form__button {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-grow: 1;
   flex-shrink: 0;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 @media screen and (max-width: 770px) {
   .login-form__button {
-    margin-top: 154px;
+    margin-top: 157px;
   }
 }
 
@@ -38,5 +42,8 @@
   }
   .login {
     padding-top: 80px;
+  }
+  .login-form__button {
+    margin-top: 245px;
   }
 }

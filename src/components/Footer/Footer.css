@@ -1,5 +1,5 @@
 .footer {
-  margin: 0;
+  margin: 0 auto;
   background-color: #202020;
   max-width: calc(100% - 2 * 70px);
   width: 100%;

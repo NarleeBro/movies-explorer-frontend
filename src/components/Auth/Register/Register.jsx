@@ -13,18 +13,19 @@ function Register() {
       <main className="content auth">
         <section className="register">
           <form className="register-form">
-            <InputField title={"Имя"} type={"text"} placeholder={"Имя"}/>
-            <InputField title={"E-mail"} type={"text"} placeholder={"E-mail"}/>
-            <InputField title={"Пароль"} type={"password"} placeholder={"Пароль"}/>
+            <InputField title={"Имя"} type={"text"} placeholder={"Имя"} />
+            <InputField title={"E-mail"} type={"text"} placeholder={"E-mail"} />
+            <InputField title={"Пароль"} type={"password"} placeholder={"Пароль"} />
             <div className="register-form__button">
               <SubmitButton title={"Зарегистрироваться"} />
+              <FormNavigation
+                questionText={"Уже зарегистрированы?"}
+                linkText={"Войти"}
+                linkTo={"/signin"}
+              />
             </div>
           </form>
-          <FormNavigation
-            questionText={"Уже зарегистрированы?"}
-            linkText={"Войти"}
-            linkTo={"/signin"}
-          />
+
         </section>
       </main>
     </div>
