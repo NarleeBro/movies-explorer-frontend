@@ -105,6 +105,12 @@
   color: #ee3465;
 }
 
+@media screen and (max-width: 1279px) {
+  .profile__update-container {
+    margin-top: 212px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .profile__data-container {
     padding-top: calc(0.09 * 100vh);
