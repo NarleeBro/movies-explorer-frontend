@@ -19,7 +19,6 @@
   cursor: pointer;
   border-radius: 34px;
   background-color: #ccc;
-  /* margin-top: 2px; */
   margin-left: 2px;
   width: 36px;
   height: 20px;
@@ -32,10 +31,8 @@
 .checkboxfilter__slider:before {
   height: 15px;
   width: 15px;
-  /* background-image: url(../../../../images/1greentumbler.svg); */
   background-position: center;
   border-radius: 50%;
-  /*  background-color: #ccc; */
   position: absolute;
   content: "";
   left: 2px;

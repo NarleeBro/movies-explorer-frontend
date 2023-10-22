@@ -1,5 +1,5 @@
 .search-form {
- padding-top: 75px;
+  padding-top: 75px;
   display: flex;
   flex-direction: column;
 }
@@ -11,7 +11,6 @@
   flex-grow: 1;
   align-items: center;
   justify-content: space-between;
-  /* border-right: 1px solid #424242; */
 }
 
 .search-form__search-container {
@@ -150,7 +149,6 @@
     font-size: 11px;
     line-height: 17px;
     margin-left: 15px;
-    /* margin-top: 0px; */
   }
 }
 
