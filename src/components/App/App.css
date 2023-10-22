@@ -5,10 +5,8 @@
   font-family: "Inter", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   color: #ffffff;
-  /* width: 1280px; */
   max-width: 100%;
   text-decoration: none;
-  /* margin: 0 auto; */
 }
 
 .page__container {

@@ -68,13 +68,13 @@
   color: #fff;
 }
 
-.menu__link.active {
+/* .menu__link.active {
   border-bottom: 2px solid #fff;
 }
 
 .menu__link:hover {
   border-bottom: 2px solid #fff;
-}
+} */
 
 .menu__account {
   position: fixed;
