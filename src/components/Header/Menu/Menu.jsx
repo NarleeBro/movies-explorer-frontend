@@ -16,7 +16,7 @@ function Menu({ isOpen, onClose }) {
           <nav className="menu__container">
             <button type="button" className="menu__close-button link" onClick={onClose} />
             <ul className="menu__content">
-              <NavLink
+            <NavLink
                 to="/"
                 className={({ isActive }) =>
                   `menu__link link ${isActive && "false"}`

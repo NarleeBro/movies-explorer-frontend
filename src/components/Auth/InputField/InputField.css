@@ -27,12 +27,13 @@
   background: #2f2f2f;
   border: none;
   color: #ffffff;
+  /* border-bottom: 1px solid #8b8b8b; */
+
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
-
 .input-field__input::placeholder {
   color: #ffffff;
 }
