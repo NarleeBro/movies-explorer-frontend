@@ -1,0 +1,20 @@
+.movies {
+  padding: 0 70px;
+  background-color: #202020;
+  max-width: calc(100% - 140px);
+  flex: 1 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .movies {
+    padding: 0 30px;
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .movies {
+    padding: 0 14px;
+    max-width: calc(100% - 28px);
+  }
+}
