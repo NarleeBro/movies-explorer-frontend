@@ -3,10 +3,10 @@
 ## Ссылка на frontend
 
 ```
-<h2> Ссылка на frontend: https://narleebro.nomoredomainsicu.ru </h2>
+https://narleebro.nomoredomainsicu.ru
 ```
 ## Ссылка на backend
 
 ```
-<h2> Ссылка на backend: https://api.narleebro.nomoredomainsicu.ru </h2>
+https://api.narleebro.nomoredomainsicu.ru
 ```
