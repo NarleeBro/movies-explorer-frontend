@@ -1,21 +1,17 @@
 import React from 'react';
-
 import './InputField.css';
 
-function InputField({title, type, placeholder}) {
+function InputField({ errorMessage, ...restProps }) {
   return (
     <div className="input-field">
-      <label className="input-field__title input-field__text">{title}</label>
+      <label className="input-field__title input-field__text">{restProps.title}</label>
       <input
-        type={type}
         className="input-field__input"
-        placeholder={placeholder}
-        minLength="2"
-        maxLength="30"
         required
-        noNoValidate
+
+        {...restProps}
       />
-      <span className="input-field__error-message input-field__text">{}</span>
+      <span className={`input-field__error-message input-field__text ${errorMessage !== '' ? "active" : ""}`}>{errorMessage}</span>
     </div>
   );
 }

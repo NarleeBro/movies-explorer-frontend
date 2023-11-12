@@ -1,6 +1,6 @@
 .header-container {
   margin: 0;
-  padding-top: 18px;
+  padding-top: 15px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -34,7 +34,6 @@
   width: 39px;
   height: 39px;
   background-size: 100% 100%;
-  /* background-size: cover; */
   background-repeat: no-repeat;
 }
 
@@ -98,7 +97,6 @@
   width: 22px;
   height: 23px;
   background-image: url(../../images/1menuburger.svg);
-  /* border: 1px solid red; */
 }
 
 @media screen and (max-width: 1280px) {
@@ -130,7 +128,7 @@
     padding: 5px 12px;
     font-size: 10px;
   }
-  .header__auth {
+  .header_auth {
     width: 132px;
   }
   .header {
