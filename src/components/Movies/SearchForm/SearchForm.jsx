@@ -82,7 +82,7 @@ function SearchForm({
           <button
             type="submit"
             className="search-form__search-btn link"
-          >Найти</button>
+          ></button>
         </div>
       </form>
       <div className="search-form__checkboxfilter-container">
