@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.78e2892e.css",
-    "main.js": "/static/js/main.e7e82d46.js",
+    "main.css": "/static/css/main.379e3de3.css",
+    "main.js": "/static/js/main.3cf32172.js",
     "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
     "static/media/404.png": "/static/media/404.801accc8f60f0ddb62fa.png",
@@ -9,9 +9,9 @@
     "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
     "static/media/2vitalik.jpg": "/static/media/2vitalik.cfa28bb4b4b24f8a1a8c.jpg",
     "static/media/1logoproject.svg": "/static/media/1logoproject.c2691b723a19fb2e580d.svg",
-    "static/media/1logoheaderpeop.svg": "/static/media/1logoheaderpeop.69c172256c309d975a4d.svg",
     "static/media/1logo3838.svg": "/static/media/1logo3838.78ee6e76ae0211ac88d9.svg",
     "index.html": "/index.html",
+    "static/media/1logoheaderpeop.svg": "/static/media/1logoheaderpeop.aa419baf42c514d877fc.svg",
     "static/media/1likeblack.svg": "/static/media/1likeblack.c275a3dedfb32172ac3b.svg",
     "static/media/1likered.svg": "/static/media/1likered.952430abcbd5f806840e.svg",
     "static/media/1closemenu.svg": "/static/media/1closemenu.7a579fd06deace8e4bc7.svg",
@@ -19,11 +19,11 @@
     "static/media/1findbtn.svg": "/static/media/1findbtn.cd9cfb0f2497f10d6873.svg",
     "static/media/1linkstrleka.svg": "/static/media/1linkstrleka.bd2ba961cfad92f555cb.svg",
     "static/media/1menuburger.svg": "/static/media/1menuburger.fac548bd1e02f4cf306b.svg",
-    "main.78e2892e.css.map": "/static/css/main.78e2892e.css.map",
-    "main.e7e82d46.js.map": "/static/js/main.e7e82d46.js.map"
+    "main.379e3de3.css.map": "/static/css/main.379e3de3.css.map",
+    "main.3cf32172.js.map": "/static/js/main.3cf32172.js.map"
   },
   "entrypoints": [
-    "static/css/main.78e2892e.css",
-    "static/js/main.e7e82d46.js"
+    "static/css/main.379e3de3.css",
+    "static/js/main.3cf32172.js"
   ]
 }

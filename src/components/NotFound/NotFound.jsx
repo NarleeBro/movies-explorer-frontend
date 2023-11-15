@@ -16,11 +16,8 @@ function NotFound() {
         <section className="not-found">
           <h1 className="not-found__header">404</h1>
           <p className="not-found__subtitle">Страница не найдена</p>
-          <button
-            className="not-found__back-link link"
-            onClick={handleGoBackOnePos}
-          >
-            Назад
+          <button className="not-found__back-link link">
+            <span onClick={handleGoBackOnePos}>Назад</span>
           </button>
         </section>
       </main>

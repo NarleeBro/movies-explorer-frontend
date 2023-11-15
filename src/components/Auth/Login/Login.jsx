@@ -24,9 +24,10 @@ function Login(props) {
     password: "",
   });
   const [errorResMessage, setErrorResMessage] = useState("");
-  const [isActiveSubmitButton, setIsActiveSubmitButton] = useState(false);
   const { isActivePreloader, setStatePreloader } = useContext(PreloaderContext);
   const { setCurrentUser } = useContext(CurrentUserContext);
+
+  const [isSubmitBtnDisabled, setIsSubmitBtnDisabled] = useState(true); 
 
   function handleSubmitRegister(event) {
     event.preventDefault();
@@ -40,7 +41,11 @@ function Login(props) {
     const hasError = Object.values(errorMessages).some(
       (message) => message !== ""
     );
-    setIsActiveSubmitButton(!hasEmptyField && !hasError);
+    if (!hasEmptyField && !hasError && errorResMessage.length === 0) {
+      setIsSubmitBtnDisabled(false);
+    } else {
+      setIsSubmitBtnDisabled(true);
+    }
   }
 
   function validateFormFields(formElement) {
@@ -74,7 +79,9 @@ function Login(props) {
 
   useEffect(() => {
     checkActivateSubmitButton();
-  }, [dataForm, errorMessages]);
+  }, [dataForm, errorResMessage]);
+
+  console.log(errorResMessage);
 
   useEffect(() => {
     if (props.loggedIn) {
@@ -83,6 +90,7 @@ function Login(props) {
   }, [props.loggedIn]); //если добавить navigate  в массив то ошибка уйдет!!! попробовать!!! [props.loggedIn, navigate])
 
   function loginUser(dataForm) {
+    setIsSubmitBtnDisabled(true);
     setStatePreloader(true);
     apiMain
       .authorization({ email: dataForm.email, password: dataForm.password })
@@ -99,10 +107,11 @@ function Login(props) {
       })
       .catch((error) => {
         setErrorResMessage(error.message);
-        setIsActiveSubmitButton(false);
+
       })
       .finally(() => {
         setStatePreloader(false);
+        setIsSubmitBtnDisabled(false);
       });
   }
 
@@ -138,13 +147,14 @@ function Login(props) {
               disabled={!isActiveInputField}
               value={dataForm.password || ""}
               onChange={handleChangeLogin}
-              minLength="1"
+              minLength="3"
             />
+            {errorResMessage.length > 0 && <span className="input-field__error-message input-field__text active">{errorResMessage}</span>}
             {isActivePreloader && <Preloader />}
             <div className="login-form__button">
               <SubmitButton
                 title="Войти"
-                isActive={isActiveSubmitButton}
+                isSubmitBtnDisabled={isSubmitBtnDisabled}
                 errorMessage={errorResMessage}
               />
               <FormNavigation

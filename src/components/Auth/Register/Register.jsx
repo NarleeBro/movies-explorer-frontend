@@ -35,6 +35,8 @@ function Register(props) {
   const { isActivePreloader, setStatePreloader } = useContext(PreloaderContext);
   const { setCurrentUser } = useContext(CurrentUserContext);
 
+  const [isSubmitBtnDisabled, setIsSubmitBtnDisabled] = useState(true); 
+
   function handleSubmitRegister(event) {
     event.preventDefault();
     setIsActiveInputField(false);
@@ -43,12 +45,17 @@ function Register(props) {
   }
 
   function checkActivateSubmitButton() {
-    const hasEmptyField = Object.values(dataForm).some((value) => value === "");
+    const hasEmptyField = Object.values(dataForm).some((value) => value.length === 0);
     const hasError = Object.values(errorMessages).some(
       (message) => message !== ""
     );
-    const hasDataChanged = (dataForm.email !== sentDataForm.email || dataForm.name !== sentDataForm.name);
-    setIsActiveSubmitButton(!hasEmptyField && !hasError && hasDataChanged);
+    // const hasDataChanged = (dataForm.email !== sentDataForm.email || dataForm.name !== sentDataForm.name);
+    // setIsActiveSubmitButton(!hasEmptyField && !hasError && hasDataChanged);
+    if (!hasEmptyField && !hasError && errorResMessage.length === 0) {
+      setIsSubmitBtnDisabled(false);
+    } else {
+      setIsSubmitBtnDisabled(true);
+    }
   }
 
   function validateFormFields(formElement) {
@@ -64,6 +71,8 @@ function Register(props) {
         errorMessage = formElement.validationMessage.split(".")[0];
       }
     }
+
+
     setErrorMessages((messages) => ({
       ...messages,
       [formElement.id]: errorMessage,
@@ -81,6 +90,8 @@ function Register(props) {
   }
 
   function registerUser(dataForm) {
+    setErrorResMessage("");
+    setIsSubmitBtnDisabled(true);
     setStatePreloader(true);
     apiMain
       .register(dataForm)
@@ -94,12 +105,14 @@ function Register(props) {
               .getUserInfo(data.token)
               .then((userData) => {
                 setCurrentUser({ name: userData.name, email: userData.email });
+                setIsSubmitBtnDisabled(false);
               })
               .catch((error) => console.log(error.status, error.errorMessage));
             navigate('/movies');
           })
           .catch((error) => {
             setSentDataForm({ email: dataForm.email, name: dataForm.name })
+            setIsSubmitBtnDisabled(false);
             console.log(error.status, error.errorMessage);
           });
       })
@@ -111,16 +124,18 @@ function Register(props) {
           setErrorResMessage(error.message);
         }
         setIsActiveSubmitButton(false);
+        setIsSubmitBtnDisabled(false);
         setSentDataForm({ email: dataForm.email, name: dataForm.name });
       })
       .finally(() => {
         setStatePreloader(false);
+        setIsSubmitBtnDisabled(false);
       });
   }
 
   useEffect(() => {
     checkActivateSubmitButton();
-  }, [dataForm, errorMessages]);
+  }, [dataForm, errorResMessage]);
 
   useEffect(() => {
     if (props.loggedIn) {
@@ -172,14 +187,16 @@ function Register(props) {
               disabled={!isActiveInputField}
               value={dataForm.password || ""}
               onChange={handleChangeRegister}
-              minLength="1"
+              minLength="3"
             />
+            {errorResMessage.length > 0 && <span className="input-field__error-message input-field__text active">{errorResMessage}</span>}
             {isActivePreloader && <Preloader />}
             <div className="register-form__button">
               <SubmitButton
                 title={"Зарегистрироваться"}
                 isActive={isActiveSubmitButton}
                 errorMessage={errorResMessage}
+                isSubmitBtnDisabled={isSubmitBtnDisabled}
               />
               <FormNavigation
                 questionText={"Уже зарегистрированы?"}

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 
 import "./SearchForm.css";
 import Checkboxfilter from "./Checkboxfilter/Checkboxfilter";
+import { VisibleRowsContext } from "../../../contexts/VisibleRowsContext";
 
 function SearchForm({
   onSearch,
@@ -17,6 +18,8 @@ function SearchForm({
 }) {
   const [errorMessageNotFound, setErrorMessageNotFound] = useState("");
   const location = useLocation();
+
+  const {resetVisibleRowsContext} = useContext(VisibleRowsContext);
 
   function handleCheckbox() {
     setCheckboxfilterMode(!checkboxfilterMode);
@@ -35,6 +38,7 @@ function SearchForm({
     }
   }, [isSaved, checkboxfilterMode]); //добавить после поиск сразу после ввода - зависимость от query - удалить
 
+
   const handleChangeInput = (event) => {
     event.preventDefault();
     const value = event.target.value;
@@ -52,6 +56,7 @@ function SearchForm({
     );
     if (searchQuery !== "" || isSaved) {
       onSearch();
+      resetVisibleRowsContext();
     }
   };
 

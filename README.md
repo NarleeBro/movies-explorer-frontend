@@ -17,6 +17,6 @@ https://api.narleebro.nomoredomainsicu.ru
 ## Ссылка на pullrequest
 
 ```
-https://github.com/NarleeBro/movies-explorer-frontend/tree/level-3
+https://github.com/NarleeBro/movies-explorer-frontend/pull/2
 
 ```

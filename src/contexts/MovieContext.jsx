@@ -74,6 +74,7 @@ export const MovieProvider = ({ children }) => {
     setMovies([]);
   }, []);
 
+
   const addSavedMovie = (movieId) => {
     Promise.resolve(localStorage.getItem("beatfilm-movies"))
       .then((moviesData) => JSON.parse(moviesData))
@@ -178,6 +179,7 @@ export const MovieProvider = ({ children }) => {
         saveSavedMovies,
         addSavedMovieList,
         movies,
+        savedMovies,
       }}
     >
       {children}

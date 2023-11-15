@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate } from "react-router-dom";
 
 const ProtectedRouteElement = ({ element: Component, ...props  }) => {
+
+  const isAuth = !!localStorage.getItem('token');
+
   return (
-    props.loggedIn ? <Component {...props} /> : <Navigate to="/" replace/>
-)}
+    isAuth ? <Component {...props} /> : <Navigate to="/" replace/>
+  )
+}
 
 export default ProtectedRouteElement;

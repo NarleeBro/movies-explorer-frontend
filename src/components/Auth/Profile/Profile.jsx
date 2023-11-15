@@ -28,7 +28,9 @@ function Profile({ onMenuButtonClick, setLoggedIn }) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showSubmitButton, setShowSubmitButton] = useState(false);
   const [showUpdateButton, setShowUpdateButton] = useState(true);
-  const [isActiveSubmitButton, setIsActiveSubmitButton] = useState(false);
+
+  const [isSubmitBtnDisabled, setIsSubmitBtnDisabled] = useState(true); 
+
   const [isDisabledInputField, setIsDisabledInputField] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const {
@@ -69,7 +71,11 @@ function Profile({ onMenuButtonClick, setLoggedIn }) {
       nameInput.value !== currentUser.name ||
       emailInput.value !== currentUser.email;
     // Активируем кнопку, когда оба поля валидны!
-    setIsActiveSubmitButton(isNameValid && isEmailValid && hasDataChanged);
+    if (isNameValid && isEmailValid && hasDataChanged) {
+      setIsSubmitBtnDisabled(false);
+    } else {
+      setIsSubmitBtnDisabled(true);
+    }
   }
 
   function handleLogoutButtonClick() {
@@ -84,7 +90,7 @@ function Profile({ onMenuButtonClick, setLoggedIn }) {
   }
 
   function updateProfile(updatedUserData) {
-    setIsActiveSubmitButton(false);
+    setIsDisabledInputField(true);
     setStatePreloader(true);
     apiMain
       .newUserInfo({
@@ -101,10 +107,11 @@ function Profile({ onMenuButtonClick, setLoggedIn }) {
         if (error.status === 409) {
           setIsDisabledInputField(false);
         }
-        setIsActiveSubmitButton(false);
+        setIsDisabledInputField(false);
       })
       .finally(() => {
         setStatePreloader(false);
+        setIsDisabledInputField(false);
       });
   }
 
@@ -186,17 +193,19 @@ function Profile({ onMenuButtonClick, setLoggedIn }) {
                 </button>
               </div>
             )}
+
+            {showSubmitButton && (
+              <div className="profile__update-container">
+                <span className="profile__span-update">{errorMessage}</span>
+                <SubmitButton
+                  title="Сохранить"
+                  isSubmitBtnDisabled={isSubmitBtnDisabled}
+                />
+              </div>
+            )}
           </form>
+          {showSuccessMessage && <span>Данные профиля успешно изменены</span>}
           {isActivePreloader && <Preloader />}
-          {showSubmitButton && (
-            <div className="profile__update-container">
-              <span className="profile__span-update">{errorMessage}</span>
-              <SubmitButton
-                title="Сохранить"
-                inActive={isActiveSubmitButton}
-              />
-            </div>
-          )}
         </section>
       </main>
     </div>

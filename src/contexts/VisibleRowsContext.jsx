@@ -10,15 +10,20 @@ export const VisibleRowsProvider = ({ children }) => {
   const location = useLocation();
 
   const resetVisibleRowsContext = () => {
-    setVisibleRows(0);
-    setVisibleRowsSaved(0);
-    setCardCount(0);
+    // setVisibleRows(0);
+    // setVisibleRowsSaved(0);
+    // setCardCount(0);
+    // setPrevPathname("");
+    const { rows } = movieCardStartColumns();
+    setVisibleRows(rows);
+    setVisibleRowsSaved(rows);
+    setCardCount(rows * movieCardStartColumns().columns);
     setPrevPathname("");
   };
 
   const movieCardStartColumns = () => {
     if (window.innerWidth >= 1200) return { columns: 3, rows: 4 };
-    if (window.innerWidth >= 700) return { columns: 2, rows: 4 };
+    if (window.innerWidth >= 584) return { columns: 2, rows: 4 };
     return { columns: 1, rows: 5 };
   };
 
@@ -46,7 +51,7 @@ export const VisibleRowsProvider = ({ children }) => {
 
   const addRows = () => {
     const pathname = location.pathname;
-    if (pathname === "/movies") setVisibleRows((prevRows) => prevRows + 1);
+    if (pathname === "/movies" || pathname === "/saved-movies") setVisibleRows((prevRows) => prevRows + 1);
     else {
       setVisibleRowsSaved((prevRows) => prevRows + 1);
     }
@@ -54,7 +59,7 @@ export const VisibleRowsProvider = ({ children }) => {
 
   const getRows = () => {
     const pathname = location.pathname;
-    if (pathname === "/movies") return visibleRows;
+    if (pathname === "/movies" || pathname === "/saved-movies") return visibleRows;
     else {
       return visibleRowsSaved;
     }
@@ -70,6 +75,7 @@ export const VisibleRowsProvider = ({ children }) => {
       value={{
         getRows,
         addRows,
+        resetVisibleRowsContext,
         visibleRows,
         visibleRowsSaved,
         cardCount,

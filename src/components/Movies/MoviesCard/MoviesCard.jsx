@@ -50,14 +50,14 @@ function MoviesCard({ movieId, title, duration, backdrop, trailerLink }) {
   function convertTime(duration) {
     const minutes = duration % 60;
     const hours = Math.floor(duration / 60);
-    return (hours === 0 ? `${minutes}м` : minutes === 0 ? `${hours}ч` : `${hours}ч${minutes}м`)
+    return (hours === 0 ? `${minutes}м` : minutes === 0 ? `${hours}ч` : `${hours}ч ${minutes}м`)
   }
 
   return (
     <li className="movies-card">
       <Link
         className="movies-card__link"
-        to={trailerLink}
+
         target="_blank"
       ></Link>
       {imageError ? (
@@ -67,12 +67,18 @@ function MoviesCard({ movieId, title, duration, backdrop, trailerLink }) {
           alt="not found"
         />
       ) : (
-        <img
-          className="movies-card__backdrop"
-          src={backdrop}
-          alt={`Кадр из фильма: ${title}`}
-          onError={handleImageError}
+        <a
+          className="movies-card__link"
+          href={trailerLink}
+          target="_blank"
+        >
+            <img
+            className="movies-card__backdrop"
+            src={backdrop}
+            alt={`Кадр из фильма: ${title}`}
+            onError={handleImageError}
         />
+        </a>
       )}
       <div className="movies-card__container">
         <div className="movies-card__wrapper">
