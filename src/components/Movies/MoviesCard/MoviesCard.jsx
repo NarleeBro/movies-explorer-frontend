@@ -19,6 +19,11 @@ function MoviesCard({ movieId, title, duration, backdrop, trailerLink }) {
   };
 
   useEffect(() => {
+    setIsFavoritesRoute(location.pathname === "/saved-movies");
+  }, [location.pathname]);
+
+
+  useEffect(() => {
     if (!isFavoritesRoute) {
       if (savedMovies) {
         const isFavorite = savedMovies.some(movie => movie.movieId === movieId);
@@ -32,10 +37,15 @@ function MoviesCard({ movieId, title, duration, backdrop, trailerLink }) {
     if (favourites) {
       delSavedMovie(movieId);
     } else {
-      addSavedMovie(movieId);
+      addSavedMovie(movieId).catch((err) => {
+        if (err) {
+          setFavourites(false);
+        }
+      })
     }
     setFavourites(!favourites);
   }
+
 
   function handleDelMovie(event) {
     event.preventDefault();
@@ -54,57 +64,52 @@ function MoviesCard({ movieId, title, duration, backdrop, trailerLink }) {
   }
 
   return (
-    <li className="movies-card">
-      <Link
-        className="movies-card__link"
-
-        target="_blank"
-      ></Link>
-      {imageError ? (
-        <img
-          className="movies-card__backdrop"
-          src={error404}
-          alt="not found"
-        />
-      ) : (
-        <a
-          className="movies-card__link"
-          href={trailerLink}
-          target="_blank"
-        >
-            <img
+    <a
+      className="movies-card__link"
+      href={trailerLink}
+      target="_blank"
+    >
+      <li className="movies-card">
+        {imageError ? (
+          <img
+            className="movies-card__backdrop"
+            src={error404}
+            alt="not found"
+          />
+        ) : (
+          <img
             className="movies-card__backdrop"
             src={backdrop}
             alt={`Кадр из фильма: ${title}`}
             onError={handleImageError}
-        />
-        </a>
-      )}
-      <div className="movies-card__container">
-        <div className="movies-card__wrapper">
-          <h2 className="movies-card__title">{title}</h2>
+          />
+        )}
+        <div className="movies-card__container">
+          <div className="movies-card__wrapper">
+            <h2 className="movies-card__title">{title}</h2>
 
-          {!isFavoritesRoute && (
-            <button
-              className={`movies-card__favorites-btn link ${favourites ? "active" : ""
-                }`}
-              type="button"
-              onClick={handleClick}
-            ></button>
-          )}
-          {isFavoritesRoute && (
-            <button
-              className={`movies-card__favorites-btn link remove-btn`}
-              type="button"
-              onClick={handleDelMovie}
-            ></button>
-          )}
+            {!isFavoritesRoute && (
+              <button
+                className={`movies-card__favorites-btn link ${favourites ? "active" : ""
+                  }`}
+                type="button"
+                onClick={handleClick}
+              ></button>
+            )}
+            {isFavoritesRoute && (
+              <button
+                className={`movies-card__favorites-btn link remove-btn`}
+                type="button"
+                onClick={handleDelMovie}
+              ></button>
+            )}
+          </div>
         </div>
-      </div>
-      <span className="movies-card__duration">
-        {convertTime(duration)}
-      </span>
-    </li>
+        <span className="movies-card__duration">
+          {convertTime(duration)}
+        </span>
+      </li>
+    </a>
   );
 }
 
