@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./Techs.css";
 import SectionHeader from "../../Header/SectionHeader/SectionHeader";
 

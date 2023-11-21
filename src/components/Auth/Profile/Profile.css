@@ -76,9 +76,9 @@
 }
 
 .profile__data-row:first-child {
+  border-bottom: 1px solid #424242;
   padding-bottom: 16px;
   margin-bottom: 16px;
-  border-bottom: 1px solid #424242;
 }
 
 .profile__update-btn {
@@ -143,7 +143,7 @@
   .profile__logout {
     font-size: 12px;
   }
-   .profile__logout {
+  .profile__logout {
     font-size: 12px;
   }
   .profile {

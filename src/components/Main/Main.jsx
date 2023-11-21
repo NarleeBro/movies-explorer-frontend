@@ -9,10 +9,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Main.css";
 
-function Main() {
+function Main(props) { //js props
   return (
     <div className="page__container">
-      <Header />
+      <Header isLoggedIn={props.isLoggedIn} onClickMenuButton={props.onMenuButtonClick} />
       <main className="content">
         <Landing />
         <NavTab />

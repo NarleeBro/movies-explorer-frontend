@@ -2,21 +2,19 @@ import React, { useState } from "react";
 
 import "./SubmitButton.css";
 
-function SubmitButton({ title, onClick, inActive }) {
-  const handleClick = () => {
-    onClick();
-  };
+function SubmitButton({ title, errorMessage, inActive, isSubmitBtnDisabled }) {
 
   return (
-    <button
-      onClick={handleClick}
-      type="submit"
-      className={`submit-button link ${
-        inActive ? "submit-button_inactive" : ""
-      }`}
-    >
-      {title}
-    </button>
+    <>
+      <button
+        type="submit"
+        className={`submit-button link ${isSubmitBtnDisabled ? "submit-button_inactive" : ""
+          }`}
+        disabled={isSubmitBtnDisabled}
+      >
+        {title}
+      </button>
+    </>
   );
 }
 

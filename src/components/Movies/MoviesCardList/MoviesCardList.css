@@ -42,6 +42,10 @@
   box-sizing: border-box;
 }
 
+.movies-card-list.movies-card-list_padding.disabled {
+  padding-bottom: 0;
+}
+
 @media screen and (max-width: 1280px) {
   .movies-card-list__container {
     grid-template-columns: repeat(auto-fill, minmax(364px, 1fr));
@@ -75,7 +79,6 @@
   }
   .movies-card-list__button {
     min-width: 300px;
-    /* margin-bottom: 50px; */
     margin-top: 93px;
     margin-bottom: 0px;
     margin-left: 0px;

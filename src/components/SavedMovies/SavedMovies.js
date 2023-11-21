@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 import { MovieContext } from "../../contexts/MovieContext";
 import "./SavedMovies.css";
@@ -6,21 +6,70 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
 import SearchForm from "../Movies/SearchForm/SearchForm";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { PreloaderContext } from "../../contexts/PreloaderContext";
+import { SearchContext } from "../../contexts/SearchContext";
 
-function SavedMovies({ onRowsCounter, rows, onMenuButtonClick }) {
-  const { savedMovies, deleteMovie } = useContext(MovieContext);
+function SavedMovies({
+  onRowsCounter,
+  rows,
+  onMenuButtonClick,
+  errorMessage,
+  setErrorMessage,
+  searchFilter,
+}) {
+  const { savedMovies, delSavedMovie, saveSavedMovies } =
+    useContext(MovieContext);
+  const { searchTermSavedMovies, setSearchTermSavedMovies } =
+    useContext(SearchContext);
+  const { checkboxfilterModeSaved, setCheckboxfilterModeSaved } =
+    useContext(SearchContext);
+  const { setStatePreloader } = useContext(PreloaderContext);
+
+  useEffect(() => {
+    saveSavedMovies();
+  }, []);
+
+  function handleSearch() {
+    const optionsData = {
+      searchQuery: searchTermSavedMovies,
+      checkboxfilterMode: checkboxfilterModeSaved,
+    };
+
+    localStorage.setItem("options-saved-movies", JSON.stringify(optionsData));
+
+    setStatePreloader(true);
+
+    try {
+      searchFilter(checkboxfilterModeSaved, "saved-movies");
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setStatePreloader(false);
+    }
+  }
 
   return (
     <div className="page__container">
       <Header onClickMenuButton={onMenuButtonClick}></Header>
       <main className="content">
         <section className="saved-movies">
-          <SearchForm />
+          <SearchForm
+            onSearch={handleSearch}
+            errorMessage={errorMessage}
+            setErrorMessage={setErrorMessage}
+            setCheckboxfilterMode={setCheckboxfilterModeSaved}
+            checkboxfilterMode={checkboxfilterModeSaved}
+            setSearchQuery={setSearchTermSavedMovies}
+            searchQuery={searchTermSavedMovies}
+            localStorageName={"options-saved-movies"}
+            isSaved={true}
+          />
           <MoviesCardList
-            cards={savedMovies}
+            movies={savedMovies} 
             rows={rows}
             onRowsCounter={onRowsCounter}
-            onRemoveFromSaved={deleteMovie}
+            onRemoveFromSaved={delSavedMovie}
+            loadMoreButtomMove={false}
           />
         </section>
       </main>
